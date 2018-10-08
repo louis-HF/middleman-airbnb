@@ -1,0 +1,75 @@
+<% flat = data.flats[owner] %>
+
+<!-- Inject flat data in template -->
+
+<div class="banner mid" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 20%), url('https://kitt.lewagon.com/placeholder/cities/<%=flat.city_slug%>');">
+  <div class="banner-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <h1>Come and visit <%= flat.city_slug %></h1>
+        </div>
+        <div class='col-xs-12 col-sm-6 col-md-3'>
+          <p></p>
+          <div class="form-group">
+            <div class='input-group date' id='datetimepicker6'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class='col-xs-12 col-sm-6 col-sm-offset-6 col-md-3'>
+          <p></p>
+          <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class='col-xs-12 col-sm-6 col-sm-offset-6 col-md-6 col-md-offset-6'>
+          <p></p>
+          <select name="" id="" class="form-control input-md" aria-labelledby="dropdownMenu2">
+            <option value="1"> 1 guest </option>
+            <option value="2"> 2 guest </option>
+            <option value="3"> 3 guest </option>
+          </select>
+        </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#datetimepicker6').datetimepicker();
+              $('#datetimepicker7').datetimepicker({
+                  useCurrent: false //Important! See issue #1075
+              });
+              $("#datetimepicker6").on("dp.change", function (e) {
+                  $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+              });
+              $("#datetimepicker7").on("dp.change", function (e) {
+                  $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <div class="inline">
+        <p>Description :</p>
+        <p><%= flat.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
